@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance Management</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <p class="eyebrow">DEVOPS PROJECT</p>
+      <h1>Student Attendance Management</h1>
+      <p>Manage students, daily attendance and monthly reports.</p>
+    </div>
+    <span class="status"><span class="dot"></span> System online</span>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Student Management</h2>
+      <form id="student-form">
+        <label>Roll number
+          <input id="roll_no" required maxlength="30" placeholder="e.g. CS001">
+        </label>
+        <label>Student name
+          <input id="student-name" required maxlength="100" placeholder="Full name">
+        </label>
+        <label>Department
+          <input id="department" required maxlength="100" placeholder="e.g. CSE">
+        </label>
+        <button type="submit">Add student</button>
+      </form>
+      <p id="student-message" class="message" role="status"></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Roll number</th><th>Name</th><th>Department</th></tr>
+          </thead>
+          <tbody id="student-list"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Daily Attendance</h2>
+      <label class="date-label">Attendance date
+        <input type="date" id="attendance-date">
+      </label>
+      <div class="actions">
+        <button type="button" class="secondary" id="load-attendance">Load records</button>
+        <button type="button" class="secondary" id="all-present">All present</button>
+        <button type="button" class="secondary" id="all-absent">All absent</button>
+      </div>
+      <p class="hint">Select Present or Absent for each student in each period.</p>
+      <div class="table-wrap">
+        <table id="attendance-table">
+          <thead id="attendance-head"></thead>
+          <tbody id="attendance-body"></tbody>
+        </table>
+      </div>
+      <button type="button" id="save-attendance">Save attendance</button>
+      <p id="attendance-message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Monthly Report</h2>
+      <label class="date-label">Select month
+        <input type="month" id="report-month">
+      </label>
+      <div class="actions">
+        <button type="button" id="load-report">Generate report</button>
+        <button type="button" class="secondary" id="export-csv">Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Roll number</th><th>Name</th><th>Present</th>
+              <th>Absent</th><th>Total</th><th>Percentage</th><th>Alert</th>
+            </tr>
+          </thead>
+          <tbody id="report-body"></tbody>
+        </table>
+      </div>
+      <p id="report-message" class="message" role="status"></p>
+    </section>
+  </main>
+  <footer>Student Attendance Management System · DevOps Lab</footer>
+</body>
+</html>
